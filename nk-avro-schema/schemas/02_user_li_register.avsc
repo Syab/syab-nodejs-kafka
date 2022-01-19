@@ -1,0 +1,16 @@
+{
+     "type": "record",
+     "namespace": "com.example",
+     "name": "ProcessGIUser",
+     "aliases": ["PROCESS_LI_USER"],
+     "doc": "Schema for LI user creation",
+     "fields": [
+       { "name": "first_name", "type": "string" },
+       { "name": "last_name", "type": "string" },
+       { "name": "age", "type": "int" },
+       { "name": "email", "type": "string"},
+       { "name": "mobile_number", "type": "string"},
+       { "name": "investment_option", "type": "boolean", "default": true },
+       { "name": "signup_ts", "type": "long", "logicalType": "timestamp-millis", "doc": "EPOCH millis Timestamp at which the user signed up"}
+     ]
+}

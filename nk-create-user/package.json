@@ -1,0 +1,38 @@
+{
+  "name": "syab-nodejs-kafka",
+  "version": "1.0.0",
+  "description": "experimenting node with kafka",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node src/server.js",
+    "dev": "nodemon --exec babel-node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syab/syab-nodejs-kafka.git"
+  },
+  "author": "syab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Syab/syab-nodejs-kafka/issues"
+  },
+  "homepage": "https://github.com/Syab/syab-nodejs-kafka#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "body-parser": "^1.19.1",
+    "chalk": "^5.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "moment": "^2.29.1",
+    "pino": "^7.6.3",
+    "pino-pretty": "^7.3.0"
+  }
+}

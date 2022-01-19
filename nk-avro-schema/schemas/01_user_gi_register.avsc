@@ -1,0 +1,15 @@
+{
+     "type": "record",
+     "namespace": "com.example",
+     "name": "ProcessGIUser",
+     "aliases": ["PROCESS_GI_USER"],
+     "doc": "Schema for GI user creation",
+     "fields": [
+       { "name": "first_name", "type": "string" },
+       { "name": "last_name", "type": "string" },
+       { "name": "age", "type": "int" },
+       { "name": "email", "type": "string"},
+       { "name": "existing_user", "type": "boolean", "default": false },
+       { "name": "signup_ts", "type": "long", "logicalType": "timestamp-millis", "doc": "EPOCH millis Timestamp at which the user signed up"}
+     ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "namespace": "com.example",
+  "name": "EVENT_HISTORY",
+  "aliases": ["MONGO_EVENT_HISTORY"],
+  "doc": "Schema for Event history",
+  "fields": [
+    { "name": "globalseq", "type": "string"},
+    { "name": "entity", "type": "string" },
+    { "name": "entityseq", "type": "string" },
+    { "name": "payload", "type": "string" }
+  ]
+}

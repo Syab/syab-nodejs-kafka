@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "namespace": "com.example",
+  "name": "CHAT_HISTORY",
+  "aliases": ["MONGO_CHAT_HISTORY"],
+  "doc": "Schema for Chat history",
+  "fields": [
+    { "name": "chat_id", "type": "string"},
+    { "name": "conversation", "type": "string" },
+    { "name": "session", "type": "string" },
+    { "name": "conversation_date", "type": "string" }
+  ]
+}

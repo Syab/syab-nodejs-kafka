@@ -1,0 +1,13 @@
+{
+  "name":"mongodb-source-etq-chats-v1",
+  "config":{
+    "connector.class":"com.mongodb.kafka.connect.MongoSourceConnector",
+    "tasks.max":1,
+    "connection.uri":"mongodb://localhost:27017",
+    "database":"etq_chat",
+    "collection":"chats",
+    "topic.prefix":"MONGO_CHAT",
+    "poll.max.batch.size":1000,
+    "poll.await.time.ms":5000
+  }
+}

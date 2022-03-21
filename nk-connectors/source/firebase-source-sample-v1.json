@@ -1,0 +1,12 @@
+{
+  "name": "firebase-source-sample-v1",
+  "config" : {
+    "connector.class":"io.confluent.connect.firebase.FirebaseSourceConnector",
+    "tasks.max":1,
+    "gcp.firebase.database.reference": "https://fir-cpkafka-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    "gcp.firebase.credentials.path": "/home/appuser/secrets/fir-cpkafka-3069f6bad820.json",
+    "gcp.firebase.snapshot": true,
+    "confluent.topic.replication.factor": 1,
+    "confluent.topic.bootstrap.servers":"broker:29092"
+  }
+}

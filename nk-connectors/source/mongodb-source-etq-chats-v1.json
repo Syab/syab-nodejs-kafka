@@ -3,11 +3,17 @@
   "config":{
     "connector.class":"com.mongodb.kafka.connect.MongoSourceConnector",
     "tasks.max":1,
-    "connection.uri":"mongodb://localhost:27017",
-    "database":"etq_chat",
+    "connection.uri":"mongodb+srv://mongokafka:mongokafka123@mongo-kafka-cluster01.aed5r.mongodb.net/etq_chats?retryWrites=true&w=majority",
+    "database":"etq_chats",
     "collection":"chats",
-    "topic.prefix":"MONGO_CHAT",
-    "poll.max.batch.size":1000,
-    "poll.await.time.ms":5000
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": false,
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": false,
+    "publish.full.document.only": true,
+    "poll.await.time.ms": "5000",
+    "poll.max.batch.size": "1000",
+    "copy.existing": true,
+    "topics":"MONGOTEST"
   }
 }

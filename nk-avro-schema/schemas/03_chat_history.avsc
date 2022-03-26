@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "namespace": "etq.chatbot",
+  "name": "CHATHISTORY",
+  "aliases": ["CHATHISTORY"],
+  "doc": "Schema for Chat history",
+  "fields": [
+    { "name": "conversationlog", "type": "string"},
+    { "name": "customer", "type": "string" },
+    { "name": "email", "type": "string" },
+    { "name": "magnitude", "type": "string" },
+    { "name": "operator", "type": "string" },
+    { "name": "sentiment", "type": "string" },
+    { "name": "session", "type": "string" }
+  ]
+}

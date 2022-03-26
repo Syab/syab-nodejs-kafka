@@ -1,0 +1,14 @@
+{
+   "type": "record",
+   "namespace": "etq.chatbot",
+   "name": "USERPROFILE",
+   "aliases": ["USERPROFILE"],
+   "doc": "Schema for user profile",
+   "fields": [
+      { "name": "euid", "type": "string"},
+      { "name": "first_name", "type": "string" },
+      { "name": "last_name", "type": "string" },
+      { "name": "email", "type": "string"},
+      { "name": "policyid", "type": "string"}
+   ]
+}

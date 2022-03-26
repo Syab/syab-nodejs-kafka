@@ -1,0 +1,10 @@
+{
+  "type": "record",
+  "namespace": "etq.chatbot",
+  "name": "SLACKALERT",
+  "aliases": ["SLACKALERT"],
+  "doc": "Schema for sample slack alerts",
+  "fields": [
+    { "name": "text", "type": "string"}
+  ]
+}

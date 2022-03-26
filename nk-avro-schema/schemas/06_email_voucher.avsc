@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "namespace": "etq.chatbot",
+  "name": "EMAILVOUCHER",
+  "aliases": ["EMAILVOUCHER"],
+  "doc": "Schema for email voucher - track email sending events",
+  "fields": [
+    { "name": "email", "type": "string"},
+    { "name": "sentiment", "type": "string" },
+    { "name": "session", "type": "string" }
+  ]
+}

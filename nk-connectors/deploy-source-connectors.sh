@@ -7,7 +7,7 @@ deploy_source_connectors() {
   fileList=$(ls *.json)
   for file in $fileList; do
     echo -e "Creating $file\nURL:${connector_url}"
-    curl -X -POST -H "Content-Type: application/json" -H "Accept: application/json" -d "@${file}" "${connector_url}"
+    curl -XPOST -H "Content-Type: application/json" -H "Accept: application/json" -d "@${file}" "${connector_url}"
     echo "\n"
   done
 }

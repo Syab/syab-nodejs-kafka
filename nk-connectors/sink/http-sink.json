@@ -1,0 +1,19 @@
+{
+  "name": "http-sinkies",
+  "config": {
+    "topics": "MESSAGES",
+    "tasks.max": "1",
+    "connector.class": "io.confluent.connect.http.HttpSinkConnector",
+    "http.api.url": "http://1911-121-7-114-228.ngrok.io/api/kafkamessages",
+    "request.method": "POST",
+    "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "value.converter": "org.apache.kafka.connect.storage.StringConverter",
+    "confluent.topic.bootstrap.servers": "broker:29092",
+    "confluent.topic.replication.factor": "1",
+    "reporter.bootstrap.servers": "broker:29092",
+    "reporter.result.topic.name": "success_responses",
+    "reporter.result.topic.replication.factor": "1",
+    "reporter.error.topic.name":"error_responses",
+    "reporter.error.topic.replication.factor":"1"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "record",
+  "namespace": "etq.chatbot",
+   "name": "UPAYMENTSTATUS",
+   "aliases": ["UPAYMENTSTATUS"],
+   "doc": "Schema for USER PAYMENT STATUS in Singapore",
+   "fields": [
+     { "name": "euid", "type": "string"},
+     { "name": "country", "type": "string" },
+     { "name": "email", "type": "string" },
+     { "name": "policyid", "type": "string" },
+     { "name": "duedate", "type": "string" },
+     { "name": "paymentstatus", "type": "string"}
+   ]
+}

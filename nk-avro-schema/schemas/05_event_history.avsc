@@ -1,8 +1,8 @@
 {
   "type": "record",
-  "namespace": "com.example",
-  "name": "EVENT_HISTORY",
-  "aliases": ["MONGO_EVENT_HISTORY"],
+  "namespace": "etq.chatbot",
+  "name": "EVENTHISTORY",
+  "aliases": ["EVENTHISTORY"],
   "doc": "Schema for Event history",
   "fields": [
     { "name": "globalseq", "type": "string"},

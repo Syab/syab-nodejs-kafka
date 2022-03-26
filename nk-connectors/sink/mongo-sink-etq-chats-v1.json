@@ -1,0 +1,11 @@
+{
+"name":"mongo-sink-etq-chats-v1",
+"config":{
+    "connector.class":"com.mongodb.kafka.connect.MongoSinkConnector",
+    "tasks.max":1,
+    "connection.uri":"mongodb+srv://{$mongocreds}@mongo-kafka-cluster01.aed5r.mongodb.net/musicblog?retryWrites=true&w=majority",
+    "topics":"CHATHISTORY",
+    "database":"ETQCHATS",
+    "collection":"CHATHISTORY"
+    }
+}

@@ -104,3 +104,7 @@ dist
 .tern-port
 
 .idea/*
+
+*/plugins/*
+nk-kafka-local/keys/
+

@@ -13,10 +13,10 @@
     "confluent.topic.bootstrap.servers": "broker:29092",
     "confluent.topic.replication.factor": "1",
     "reporter.bootstrap.servers": "broker:29092",
-    "reporter.result.topic.name": "success_responses",
+    "reporter.result.topic.name": "EMAILVOUCHER_SUCCESS",
     "reporter.result.topic.replication.factor": "1",
     "reporter.result.topic.partitions": "3",
-    "reporter.error.topic.name":"error_responses",
+    "reporter.error.topic.name":"EMAILVOUCHER_ERROR",
     "reporter.error.topic.replication.factor":"1",
     "reporter.error.topic.partitions": "3"
   }

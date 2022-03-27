@@ -1,1 +1,6 @@
-import axios from "axios";
+const axios = require('axios');
+const kafKaService = require('../services/kafkaService')
+const {
+    SLACKURL
+} = require('../services/config')
+

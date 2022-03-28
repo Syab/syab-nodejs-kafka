@@ -1,61 +1,11 @@
 import cors from 'cors';
 import express from 'express';
 import bodyParser from 'body-parser';
-import { PORT, SLACKURL } from './services/config'
-import axios from "axios";
-const SSE = require('express-sse');
-const nodemailer = require('nodemailer')
-const { google } = require('googleapis')
-const config = require('../src/services/config')
-const OAuth2 = google.auth.OAuth2
+import {PORT} from './services/config';
+import task from './tasks';
+
 
 const app = express();
-const sse = new SSE();
-
-const OAuth_client = new OAuth2(config.CLIENT_ID, config.CLIENT_SECRET, config.REDIRECT_URI)
-OAuth_client.setCredentials({
-    refresh_token: config.REFRESHTOKEN
-})
-// const accessToken = OAuth_client.getAccessToken()
-
-const sendMail = (name, email) => {
-    const accessToken = OAuth_client.getAccessToken()
-    const transport = nodemailer.createTransport({
-        service: 'gmail',
-        auth : {
-            type: 'OAuth2',
-            user: config.USER,
-            client_id: config.CLIENT_ID,
-            client_secret: config.CLIENT_SECRET,
-            refresh_token: config.REFRESHTOKEN,
-            accessToken: accessToken
-        },
-        tls: {
-            rejectUnauthorized: false
-        }
-    })
-    
-    const mail_options = {
-        from: `ChaShewTo <${config.USER}>`,
-        to: email,
-        subject: `Here's a little Gift from The GOAT - Syabby`,
-        generateTextFromHTML: true,
-        html : get_html_message(name)
-    }
-
-    transport.sendMail( mail_options, (err, res) => {
-        if (err) {
-            console.log(`Error : `, err)
-        } else {
-            console.log(`Success : `, res)
-        }
-    })
-}
-const get_html_message = (name) => {
-    return `
-        <h3> ${name} Hello YO MAMA!!!</h3>
-    `
-}
 
 app.use(cors());
 app.use((req, res, next) => {
@@ -65,12 +15,11 @@ app.use((req, res, next) => {
     next()
     ;});
 
-// app.use(bodyParser.json());
 app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(express.static('.'))
-app.use(bodyParser.urlencoded({
-    extended: true,
-}));
+app.use(bodyParser.urlencoded({extended: true,}));
+
 
 app.get('/health', (req, res) => {
     res.send('Health and ok!');
@@ -79,17 +28,10 @@ app.get('/health', (req, res) => {
 app.post('/api/somemessages', (req, res) => {
     console.log("API triggered!")
     const payload = req.body.toString();
-    const msgBody = payload.replace(/[{}]/g, '').split("=").slice(1).toString()
+    const msgBody = payload.replace(/[=]/g, ':').toString()
+    const msgBodyNb = msgBody.replace(/[{}]/g, '')
     console.log("RECORD IN KAFKA : ", req.body)
-    axios.post(SLACKURL,{
-        text: msgBody
-    })
-        .then(function (response) {
-            console.log(response.status);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+    task.sendVoucherSlack(msgBodyNb);
     res.send("SUCCESS OK - SLACK");
 });
 
@@ -99,22 +41,23 @@ app.post('/api/kafkamessages', (req, res) => {
     const newBody = payload.replace(/[{}]/g, '').split("=").slice(1).toString()
     console.log("RECORD IN KAFKA : ", req.body)
     console.log(newBody)
-    // sse.send(payload)
     res.send("SUCCESS OK");
 });
 
 app.post('/api/sendVoucher', (req, res) => {
-    let firstName = req.body.firstName
-    let email = req.body.email
+    let payload = req.body.toString()
+    const msgBody = payload.replace(/[=]/g,':').toString().replace(/[{}]/g,'')
 
-    sendMail(firstName,email)
+    task.sendVoucherEmail(msgBody)
 
-    res.send({
-        "Success" : true,
-        "FIRSTNAME" : firstName,
-        "EMAIL" : email
-    })
-    console.log("HAPPY FLOW")
+    // res.send({
+    //     Success : true,
+    //     magnitude : parseFloat(msgBody.split(", ")[0].split(":")[1]),
+    //     sentiment : parseFloat(msgBody.split(", ")[2].split(":")[1]),
+    //     email : msgBody.split(", ")[3].split(":")[1],
+    // })
+    res.send("EMAIL SENT SUCCESS OK");
+    console.log("end job")
 });
 
 app.listen(PORT, () => {

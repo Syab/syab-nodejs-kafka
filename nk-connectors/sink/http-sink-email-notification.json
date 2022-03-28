@@ -1,10 +1,10 @@
 {
-  "name": "http-sink-email-notification",
+  "name": "http-sink-slack-notification",
   "config": {
-    "topics": "MESSAGES_JSON",
+    "topics": "PRSADUSERS_JSON",
     "tasks.max": "1",
     "connector.class": "io.confluent.connect.http.HttpSinkConnector",
-    "http.api.url": "http://0bfb-121-7-114-228.ngrok.io/api/somemessages",
+    "http.api.url": "http://b28a-121-7-114-228.ngrok.io/api/somemessages",
     "request.method": "POST",
     "key.converter": "org.apache.kafka.connect.storage.StringConverter",
     "header.converter": "org.apache.kafka.connect.storage.StringConverter",
@@ -13,10 +13,10 @@
     "confluent.topic.bootstrap.servers": "broker:29092",
     "confluent.topic.replication.factor": "1",
     "reporter.bootstrap.servers": "broker:29092",
-    "reporter.result.topic.name": "EMAILVOUCHER_SUCCESS",
+    "reporter.result.topic.name": "PRSADUSERS_SUCCESS",
     "reporter.result.topic.replication.factor": "1",
     "reporter.result.topic.partitions": "3",
-    "reporter.error.topic.name":"EMAILVOUCHER_ERROR",
+    "reporter.error.topic.name":"PRSADUSERS_ERROR",
     "reporter.error.topic.replication.factor":"1",
     "reporter.error.topic.partitions": "3"
   }

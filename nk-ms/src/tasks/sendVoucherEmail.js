@@ -3,11 +3,6 @@ const SSE = require('express-sse');
 const nodemailer = require('nodemailer')
 const { google } = require('googleapis')
 const kafKaService = require('../services/kafkaService')
-const {
-    USER,
-    CLIENT_ID,
-    CLIENT_SECRET
-} = require('../services/config')
 const config = require("../services/config");
 
 const sse = new SSE();
@@ -66,8 +61,8 @@ const sendVoucherEmail = (msgBody) => {
 
     const name = msgBody.split(", ")[3].split(":")[1].split("@")[0];
     const email = msgBody.split(", ")[3].split(":")[1];
-    // console.log(name, email)
-    sendMail(name, email)
+    console.log(name, email)
+    // sendMail(name, email)
 }
 
 module.exports = {

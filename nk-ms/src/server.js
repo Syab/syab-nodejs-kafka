@@ -20,9 +20,12 @@ app.use(bodyParser.json());
 app.use(express.static('.'))
 app.use(bodyParser.urlencoded({extended: true,}));
 
+app.get('/', (req, res) => {
+    res.send('Root OK!');
+});
 
 app.get('/health', (req, res) => {
-    res.send('Health and ok!');
+    res.send('Health Ok!');
 });
 
 app.post('/api/somemessages', (req, res) => {
@@ -45,7 +48,8 @@ app.post('/api/kafkamessages', (req, res) => {
 });
 
 app.post('/api/sendVoucher', (req, res) => {
-    let payload = req.body.toString()
+    let payload = req.body.payload
+    // let payload = req.body.toString()
     const msgBody = payload.replace(/[=]/g,':').toString().replace(/[{}]/g,'')
 
     task.sendVoucherEmail(msgBody)

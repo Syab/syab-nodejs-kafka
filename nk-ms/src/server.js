@@ -21,11 +21,11 @@ app.use(express.static('.'))
 app.use(bodyParser.urlencoded({extended: true,}));
 
 app.get('/', (req, res) => {
-    res.send('Root OK!');
+    res.json('Root OK!');
 });
 
 app.get('/health', (req, res) => {
-    res.send('Health Ok!');
+    res.json('Health Ok!');
 });
 
 app.post('/api/somemessages', (req, res) => {

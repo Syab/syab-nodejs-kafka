@@ -1,9 +1,8 @@
-name: CI - Code Quality Scan
+name: CI - Status Code Quality Scan
 on:
   push:
     branches:
       - 'deploy'
-      - 'main'
 #  pull_request:
 #    types: [opened, synchronize, reopened]
 defaults:

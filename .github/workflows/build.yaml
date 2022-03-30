@@ -2,6 +2,7 @@ name: CI - Status Code Quality Scan
 on:
   push:
     branches:
+      - 'main'
       - 'deploy'
       - 'release/**'
 #  pull_request:

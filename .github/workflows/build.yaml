@@ -6,6 +6,9 @@ on:
       - 'main'
 #  pull_request:
 #    types: [opened, synchronize, reopened]
+defaults:
+  run:
+    working-directory: ./nk-ms
 jobs:
   sonarcloud:
     runs-on: ubuntu-latest

@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - 'deploy'
-      - 'main'
+      - 'release/**'
 #  pull_request:
 #    types: [opened, synchronize, reopened]
 defaults:

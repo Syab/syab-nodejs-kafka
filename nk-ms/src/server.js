@@ -1,8 +1,8 @@
-import cors from 'cors';
-import express from 'express';
-import bodyParser from 'body-parser';
-import {PORT} from './services/config';
-import task from './tasks';
+const cors = require('cors');
+const express = require('express');
+const bodyParser = require('body-parser');
+const{PORT} = require('./services/config');
+const task = require('./tasks');
 
 
 const app = express();
@@ -25,7 +25,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/health', (req, res) => {
-    res.json('Health Ok!');
+    res.json({
+        "msg": "Health Ok!",
+        "environmentvars": process.env.HEALTH
+    });
 });
 
 app.post('/api/somemessages', (req, res) => {
